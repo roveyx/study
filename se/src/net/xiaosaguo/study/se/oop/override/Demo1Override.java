@@ -5,6 +5,9 @@ import lombok.*;
 import java.time.LocalDate;
 
 /**
+ * 提示：如果 lombok 注解不生效，在 IDEA 的设置
+ * File | Settings | Build, Execution, Deployment | Compiler | Annotation Processors 中，勾选 "Enable annotation processing" 即可
+ *
  * description: 测试 重写 @Override
  * <p>
  * 父类得有无参构造，否则子类在实例化时，无法实例化父类
@@ -45,7 +48,7 @@ import java.time.LocalDate;
  * @author xiaosaguo
  * @date 2020/05/30
  */
-public class OverrideDemo {
+public class Demo1Override {
 
     public static void main(String[] args) {
         // Parent parent = new Parent("parent", 28, LocalDate.of(1993, 4, 16), (byte) 1, true);
