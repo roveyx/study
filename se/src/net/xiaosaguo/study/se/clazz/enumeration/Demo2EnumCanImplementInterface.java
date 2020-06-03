@@ -1,4 +1,4 @@
-package net.xiaosaguo.study.se.clazz.jenum;
+package net.xiaosaguo.study.se.clazz.enumeration;
 
 
 import java.util.EnumSet;
