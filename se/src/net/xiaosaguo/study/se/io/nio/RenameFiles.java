@@ -14,9 +14,9 @@ import java.nio.file.Paths;
  */
 public class RenameFiles {
 
-    public static final String NAME = ".avi";
-    public static final String REGEX = "^[0-9]{1,2}、[\\s\\S]*$";
-    public static final String DIR_PATH = "E:\\学习E\\谷粒商城\\1.分布\\";
+    public static final String NAME = ".mp4";
+    public static final String REGEX = "^[0-9]{3}、[\\s\\S]*$";
+    public static final String DIR_PATH = "E:\\学习E\\谷粒商城\\临时\\";
 
     public static void main(String[] args) throws IOException {
         // 获取文件夹路径
@@ -30,10 +30,16 @@ public class RenameFiles {
                 // 如果匹配正则和文件拓展名，就改名
                 if (fileName.matches(REGEX) && fileName.endsWith(NAME)) {
                     // 改名后的文件，需要带上路径，注意文件夹路径最后需要 “\”
-                    fileName = DIR_PATH + 0 + fileName;
+                    String substring = fileName.substring(0, 3);
+                    int num = Integer.parseInt(substring) + 1;
+                    fileName = num + fileName.substring(3);
+                    System.out.println(fileName);
+                    fileName = DIR_PATH + fileName;
+                    System.out.println(fileName);
                     /// fileName = fileName.replace("0", "");
                     Path renamePath = Paths.get(fileName);
                     System.out.println(renamePath);
+                    // 剪切文件
                     Files.move(filePath, renamePath);
                 }
             }
