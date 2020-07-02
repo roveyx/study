@@ -16,7 +16,7 @@ public class RenameFiles {
 
     public static final String NAME = ".mp4";
     public static final String REGEX = "^[0-9]{3}、[\\s\\S]*$";
-    public static final String DIR_PATH = "E:\\学习E\\谷粒商城\\临时\\";
+    public static final String DIR_PATH = "E:\\Downloads\\分布式高级篇\\rename\\";
 
     public static void main(String[] args) throws IOException {
         // 获取文件夹路径
@@ -26,21 +26,21 @@ public class RenameFiles {
             for (Path filePath : stream) {
                 // 获取文件名，不带路径
                 String fileName = filePath.getFileName().toString();
-                /// System.out.println(filePath.getFileName());
+                System.out.println("-->改名前：" + filePath.getFileName());
                 // 如果匹配正则和文件拓展名，就改名
                 if (fileName.matches(REGEX) && fileName.endsWith(NAME)) {
-                    // 改名后的文件，需要带上路径，注意文件夹路径最后需要 “\”
+                    // 改名后的文件，需要带上路径，注意文件夹路径最后需要 “\”，改名逻辑
                     String substring = fileName.substring(0, 3);
                     int num = Integer.parseInt(substring) + 1;
                     fileName = num + fileName.substring(3);
-                    System.out.println(fileName);
+                    System.out.println("-->改名后：" + fileName);
                     fileName = DIR_PATH + fileName;
-                    System.out.println(fileName);
+                    System.out.println("-->改名后，全路径（String）：" + fileName);
                     /// fileName = fileName.replace("0", "");
                     Path renamePath = Paths.get(fileName);
-                    System.out.println(renamePath);
+                    System.out.println("-->改名后，全路径（Path  ）：" + renamePath);
                     // 剪切文件
-                    Files.move(filePath, renamePath);
+                    // Files.move(filePath, renamePath);
                 }
             }
         }
