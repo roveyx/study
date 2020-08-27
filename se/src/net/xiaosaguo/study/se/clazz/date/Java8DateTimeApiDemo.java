@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
  * @author xiaosaguo
  * @date 2020/05/16
  */
-public class TimeTest {
+public class Java8DateTimeApiDemo {
 
     public static void main(String[] args) {
 
